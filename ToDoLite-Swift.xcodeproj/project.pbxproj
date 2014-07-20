@@ -7,12 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56813255196CAF2200503172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813254196CAF2200503172 /* AppDelegate.swift */; };
-		56813257196CAF2200503172 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813256196CAF2200503172 /* MasterViewController.swift */; };
+		564792E0197B7D4D00734424 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792D9197B7D4D00734424 /* List.m */; };
+		564792E1197B7D4D00734424 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DB197B7D4D00734424 /* Profile.m */; };
+		564792E2197B7D4D00734424 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DD197B7D4D00734424 /* Task.m */; };
+		564792E3197B7D4D00734424 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DF197B7D4D00734424 /* Titled.m */; };
+		564792E5197B7E0500734424 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564792E4197B7E0500734424 /* CouchbaseLite.framework */; };
+		567B13211979929C0069F39A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813254196CAF2200503172 /* AppDelegate.swift */; };
+		567B1322197995610069F39A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813256196CAF2200503172 /* MasterViewController.swift */; };
+		567B132C1979BA1A0069F39A /* TaskTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B132B1979BA1A0069F39A /* TaskTableVIewCell.swift */; };
+		567B132F1979CDB40069F39A /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B132E1979CDB40069F39A /* ImageViewController.swift */; };
 		56813259196CAF2200503172 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813258196CAF2200503172 /* DetailViewController.swift */; };
 		5681325C196CAF2200503172 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5681325A196CAF2200503172 /* Main.storyboard */; };
 		5681325E196CAF2200503172 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5681325D196CAF2200503172 /* Images.xcassets */; };
 		5681326A196CAF2200503172 /* ToDoLite_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813269196CAF2200503172 /* ToDoLite_SwiftTests.swift */; };
+		56813283196CB0BE00503172 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56813282196CB0BE00503172 /* Accounts.framework */; };
+		56813285196CB0C700503172 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56813284196CB0C700503172 /* CFNetwork.framework */; };
+		56813287196CB0CE00503172 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56813286196CB0CE00503172 /* SystemConfiguration.framework */; };
+		56813289196CB0D700503172 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56813288196CB0D700503172 /* Security.framework */; };
+		5681328B196CB0E300503172 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5681328A196CB0E300503172 /* Social.framework */; };
+		5681328D196CB0EC00503172 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5681328C196CB0EC00503172 /* libz.dylib */; };
+		5681328F196CB10300503172 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5681328E196CB10300503172 /* libsqlite3.dylib */; };
+		56DD8238196DB8D700996E78 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56DD8237196DB8D700996E78 /* ShareViewController.swift */; };
+		56FBE0E2196CD3C10067223F /* CBLSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56FBE0E1196CD3C10067223F /* CBLSyncManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +42,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		564792D8197B7D4D00734424 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = DataModel/List.h; sourceTree = "<group>"; };
+		564792D9197B7D4D00734424 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = DataModel/List.m; sourceTree = "<group>"; };
+		564792DA197B7D4D00734424 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = DataModel/Profile.h; sourceTree = "<group>"; };
+		564792DB197B7D4D00734424 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = DataModel/Profile.m; sourceTree = "<group>"; };
+		564792DC197B7D4D00734424 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = DataModel/Task.h; sourceTree = "<group>"; };
+		564792DD197B7D4D00734424 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = DataModel/Task.m; sourceTree = "<group>"; };
+		564792DE197B7D4D00734424 /* Titled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Titled.h; path = DataModel/Titled.h; sourceTree = "<group>"; };
+		564792DF197B7D4D00734424 /* Titled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Titled.m; path = DataModel/Titled.m; sourceTree = "<group>"; };
+		564792E4197B7E0500734424 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = Frameworks/CouchbaseLite.framework; sourceTree = "<group>"; };
+		564FD8E619709B5D0007F37B /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = DataModel/List.swift; sourceTree = "<group>"; };
+		564FD8E81970A1550007F37B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = DataModel/Profile.swift; sourceTree = "<group>"; };
+		564FD8EA1970A1800007F37B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = DataModel/Task.swift; sourceTree = "<group>"; };
+		567B132B1979BA1A0069F39A /* TaskTableVIewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableVIewCell.swift; sourceTree = "<group>"; };
+		567B132E1979CDB40069F39A /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		567B13301979EEE10069F39A /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		5681324F196CAF2200503172 /* ToDoLite-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoLite-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56813253196CAF2200503172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56813254196CAF2200503172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +67,17 @@
 		56813263196CAF2200503172 /* ToDoLite-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ToDoLite-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56813268196CAF2200503172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56813269196CAF2200503172 /* ToDoLite_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoLite_SwiftTests.swift; sourceTree = "<group>"; };
+		56813282196CB0BE00503172 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		56813284196CB0C700503172 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		56813286196CB0CE00503172 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		56813288196CB0D700503172 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5681328A196CB0E300503172 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5681328C196CB0EC00503172 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5681328E196CB10300503172 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		56813292196CB20400503172 /* ToDoLite-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToDoLite-Swift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		56DD8237196DB8D700996E78 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		56DD823A196DBF4F00996E78 /* Titled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Titled.swift; path = DataModel/Titled.swift; sourceTree = "<group>"; };
+		56FBE0E1196CD3C10067223F /* CBLSyncManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBLSyncManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +85,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5681328F196CB10300503172 /* libsqlite3.dylib in Frameworks */,
+				5681328D196CB0EC00503172 /* libz.dylib in Frameworks */,
+				5681328B196CB0E300503172 /* Social.framework in Frameworks */,
+				56813289196CB0D700503172 /* Security.framework in Frameworks */,
+				56813287196CB0CE00503172 /* SystemConfiguration.framework in Frameworks */,
+				56813285196CB0C700503172 /* CFNetwork.framework in Frameworks */,
+				564792E5197B7E0500734424 /* CouchbaseLite.framework in Frameworks */,
+				56813283196CB0BE00503172 /* Accounts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +109,7 @@
 		56813246196CAF2200503172 = {
 			isa = PBXGroup;
 			children = (
+				56813281196CB01400503172 /* Frameworks */,
 				56813251196CAF2200503172 /* ToDoLite-Swift */,
 				56813266196CAF2200503172 /* ToDoLite-SwiftTests */,
 				56813250196CAF2200503172 /* Products */,
@@ -77,9 +128,16 @@
 		56813251196CAF2200503172 /* ToDoLite-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				56813292196CB20400503172 /* ToDoLite-Swift-Bridging-Header.h */,
+				56DD8239196DBD8600996E78 /* DataModel */,
 				56813254196CAF2200503172 /* AppDelegate.swift */,
 				56813256196CAF2200503172 /* MasterViewController.swift */,
 				56813258196CAF2200503172 /* DetailViewController.swift */,
+				56FBE0E1196CD3C10067223F /* CBLSyncManager.swift */,
+				56DD8237196DB8D700996E78 /* ShareViewController.swift */,
+				567B132B1979BA1A0069F39A /* TaskTableVIewCell.swift */,
+				567B132E1979CDB40069F39A /* ImageViewController.swift */,
+				567B13301979EEE10069F39A /* RoundedButton.swift */,
 				5681325A196CAF2200503172 /* Main.storyboard */,
 				5681325D196CAF2200503172 /* Images.xcassets */,
 				56813252196CAF2200503172 /* Supporting Files */,
@@ -110,6 +168,40 @@
 				56813268196CAF2200503172 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		56813281196CB01400503172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				564792E4197B7E0500734424 /* CouchbaseLite.framework */,
+				5681328E196CB10300503172 /* libsqlite3.dylib */,
+				5681328C196CB0EC00503172 /* libz.dylib */,
+				5681328A196CB0E300503172 /* Social.framework */,
+				56813288196CB0D700503172 /* Security.framework */,
+				56813286196CB0CE00503172 /* SystemConfiguration.framework */,
+				56813284196CB0C700503172 /* CFNetwork.framework */,
+				56813282196CB0BE00503172 /* Accounts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		56DD8239196DBD8600996E78 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				564792D8197B7D4D00734424 /* List.h */,
+				564792D9197B7D4D00734424 /* List.m */,
+				564792DA197B7D4D00734424 /* Profile.h */,
+				564792DB197B7D4D00734424 /* Profile.m */,
+				564792DC197B7D4D00734424 /* Task.h */,
+				564792DD197B7D4D00734424 /* Task.m */,
+				564792DE197B7D4D00734424 /* Titled.h */,
+				564792DF197B7D4D00734424 /* Titled.m */,
+				564FD8E619709B5D0007F37B /* List.swift */,
+				564FD8E81970A1550007F37B /* Profile.swift */,
+				564FD8EA1970A1800007F37B /* Task.swift */,
+				56DD823A196DBF4F00996E78 /* Titled.swift */,
+			);
+			name = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +253,7 @@
 				TargetAttributes = {
 					5681324E196CAF2200503172 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = C963797VQN;
 					};
 					56813262196CAF2200503172 = {
 						CreatedOnToolsVersion = 6.0;
@@ -211,9 +304,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				564792E2197B7D4D00734424 /* Task.m in Sources */,
+				567B132C1979BA1A0069F39A /* TaskTableVIewCell.swift in Sources */,
+				567B1322197995610069F39A /* MasterViewController.swift in Sources */,
+				567B13211979929C0069F39A /* AppDelegate.swift in Sources */,
+				56FBE0E2196CD3C10067223F /* CBLSyncManager.swift in Sources */,
+				564792E1197B7D4D00734424 /* Profile.m in Sources */,
 				56813259196CAF2200503172 /* DetailViewController.swift in Sources */,
-				56813257196CAF2200503172 /* MasterViewController.swift in Sources */,
-				56813255196CAF2200503172 /* AppDelegate.swift in Sources */,
+				564792E0197B7D4D00734424 /* List.m in Sources */,
+				564792E3197B7D4D00734424 /* Titled.m in Sources */,
+				567B132F1979CDB40069F39A /* ImageViewController.swift in Sources */,
+				56DD8238196DB8D700996E78 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +385,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -320,7 +423,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -331,8 +436,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "ToDoLite-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_MODULE_NAME = ToDoLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -342,8 +454,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = "ToDoLite-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_MODULE_NAME = ToDoLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -401,6 +520,7 @@
 				5681326F196CAF2200503172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56813270196CAF2200503172 /* Build configuration list for PBXNativeTarget "ToDoLite-SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +529,7 @@
 				56813272196CAF2200503172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
