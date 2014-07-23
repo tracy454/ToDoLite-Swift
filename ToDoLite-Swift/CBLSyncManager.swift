@@ -146,11 +146,78 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         authenticator?.registerCredentialsWithReplications(replications)
     }
     
+    //MARK: Progress monitoring
+    
     func listenForReplicationEvents(repl: CBLReplication) {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "replicationProgress:", name: kCBLReplicationChangeNotification, object: repl)
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "replicationProgress:",
+            name: kCBLReplicationChangeNotification,
+            object: repl)
     }
     
+    // we watch these variables in the notification handler
+    var _active: Bool = false
+    var _completed = UInt32(0)
+    var _total = UInt32(0)
+    var _status = CBLReplicationStatus.Stopped
+    var _error: NSError?
+    
+    var progress = 0.0
+    
     func replicationProgress(nCenter: NSNotificationCenter) {
+        // N.B. CBLReplicationStatus in CBLReplication.h needed to be changed
+        // for Swift compatibility:
+        //   Use the NS_ENUM(NSInteger, CBLReplicationStatus) macro so Swift imports it
+        //   Explicitly assign kCBLReplicationStopped = 0 to permit numerical comparisons
+        // Having done those, remember Swift name-mangles C-enums, and it is
+        // more clever than you expect.
+        // All in all, rather too much work.
+        
+        // local versions of state
+        var active: Bool = false
+        var completed = UInt32(0)
+        var total = UInt32(0)
+        var status = CBLReplicationStatus.Stopped
+        var error: NSError?
+        
+        for repl in [pull, push] {
+            let maxStatus = max(status.toRaw(), repl!.status.toRaw())
+            status = CBLReplicationStatus.fromRaw(maxStatus)!
+            
+            if !error {
+                error = repl!.lastError
+            }
+            if repl!.status == .Active {
+                active = true
+                completed += repl!.completedChangesCount
+                total += repl!.changesCount
+            }
+        }
+        
+        // did we have an error?
+        if error != _error && error?.code == 401 {
+            // need (re-)authentication
+            if !authenticator {
+                // try again after sync has triggered
+                lastAuthError = error
+                return
+            } else {
+                runAuthenticator()
+            }
+        }
+        
+        // update the global state and notify the progress bar
+        if active != _active || completed != _completed || total != _total || status != _status || error != _error {
+            _active = active
+            _completed = completed
+            _total = total
+            _status = status
+            _error = error
+            progress = Double(completed) / Double(max(1, total))
+            
+            // At this point, the original demo code stopped with an incomplete implementation
+            // Should implement the progress bar whenever a sync is happening
+        }
         
     }
     

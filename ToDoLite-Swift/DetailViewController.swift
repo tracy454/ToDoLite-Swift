@@ -25,11 +25,11 @@ class DetailViewController: UIViewController,
     UIScrollViewDelegate,
     UIActionSheetDelegate {
 
-    @IBOutlet var detailDescriptionLabel: UILabel
-    @IBOutlet var tableView: UITableView
-    @IBOutlet var dataSource: CBLUITableSource
-    @IBOutlet var addItemTextField: UITextField
-    @IBOutlet var addImageButton: UIButton
+    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dataSource: CBLUITableSource!
+    @IBOutlet weak var addItemTextField: UITextField!
+    @IBOutlet weak var addImageButton: UIButton!
     var masterPopoverController: UIPopoverController? = nil
     
     var app: AppDelegate!
@@ -40,7 +40,7 @@ class DetailViewController: UIViewController,
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
-            //self.configureView()
+            self.configureView()
 
             if self.masterPopoverController != nil {
                 self.masterPopoverController!.dismissPopoverAnimated(true)
@@ -80,7 +80,7 @@ class DetailViewController: UIViewController,
         }
         assert(cell, "Can't make a TaskTableCell")
         
-        let row = source.rowAtIndex(indexPath.row)
+        let row = source.rowAtIndex(UInt(indexPath.row))
         let newTask = Task(forDocument: row.document)
         cell!.task = newTask
         cell!.delegate = self
@@ -108,7 +108,7 @@ class DetailViewController: UIViewController,
         // Dispose of any resources that can be recreated.
     }
     
-    // navigation
+    //MARK: navigation
     @IBAction func shareButtonAction(sender: AnyObject?) {
         app.loginAndSync({
             self.performSegueWithIdentifier("setupSharing", sender: self)
@@ -122,7 +122,7 @@ class DetailViewController: UIViewController,
         }
     }
 
-    // #pragma mark - Split view
+    //MARK: Split view
 
     func splitViewController(splitController: UISplitViewController, willHideViewController viewController: UIViewController, withBarButtonItem barButtonItem: UIBarButtonItem, forPopoverController popoverController: UIPopoverController) {
         barButtonItem.title = NSLocalizedString("To-do Lists", comment:"To-do Lists")
@@ -140,12 +140,12 @@ class DetailViewController: UIViewController,
         return true
     }
     
-    // #pragma mark - Add item
+    //MARK: Add item
     
     
     // called when an item is selected. Toggles the checkmark
     func tableView(UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void {
-        let row = dataSource.rowAtIndex(indexPath.row)
+        let row = dataSource.rowAtIndex(UInt(indexPath.row))
         var task = Task(forDocument: row.document)
         let checked = task.checked
         task.checked = !checked
@@ -182,7 +182,7 @@ class DetailViewController: UIViewController,
         return true
     }
     
-    // taking a picture
+    //MARK: taking a picture
     func hasCamera() -> Bool {
         return UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
@@ -226,7 +226,7 @@ class DetailViewController: UIViewController,
         }
     }
     
-    // UIActionSheetDelegate
+    //MARK: UIActionSheetDelegate
     func actionSheet(actionSheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
         // Cancel button
         if buttonIndex == actionSheet.cancelButtonIndex {
@@ -258,7 +258,7 @@ class DetailViewController: UIViewController,
         displayAddImageActionSheetFor(sender, forTask: nil )
     }
     
-    // TaskTableCellDelegate
+    //MARK: TaskTableCellDelegate
     func didSelectImageButton(imageButton: UIButton, ofTask task: Task) {
         let attachment = task.attachmentNamed("image")
         if attachment {

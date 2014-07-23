@@ -69,7 +69,7 @@ let kFBAppId = "501518809925546"
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // #pragma mark - Sync
+    //MARK: Sync
     
     func updateMyLists(userID: String, userData: Dictionary<String, AnyObject>, outError: NSErrorPointer?) {
         let name: AnyObject? = userData["name"]

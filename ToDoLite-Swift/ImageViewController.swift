@@ -14,7 +14,7 @@ import UIKit
 
 class ImageViewController: UIViewController {
 
-    @IBOutlet var imageView: UIImageView
+    @IBOutlet var imageView: UIImageView!
     var image: UIImage? {
     didSet {
         self.imageView.image = self.image

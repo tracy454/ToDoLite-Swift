@@ -17,7 +17,7 @@ typealias AppDelegateType = AppDelegate
 class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertViewDelegate {
 
     var detailViewController: DetailViewController?
-    @IBOutlet var dataSource: CBLUITableSource
+    @IBOutlet weak var dataSource: CBLUITableSource!
     var objects = NSMutableArray()
     var database: CBLDatabase!
     var app: AppDelegate!
@@ -63,7 +63,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         // Dispose of any resources that can be recreated.
     }
     
-    // CBL data
+    //MARK: CBL data
     @IBAction func doLogin(sender: AnyObject) {
         app.loginAndSync({
             println("called loginAndSync complete")
@@ -106,12 +106,12 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         }
     }
     
-    // #pragma mark - Segues
+    //MARK: Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let row = dataSource.rowAtIndex(indexPath.row)
+            let row = dataSource.rowAtIndex(UInt(indexPath.row))
             var list = CBLModel(forDocument: row.document) as? List
             ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = list
         }
@@ -122,7 +122,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         tableView.reloadData()
     }
 
-    // #pragma mark - Table View
+    //MARK: Table View
 /*  CBLUITable handles these next four methods
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -158,7 +158,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
             //let object = objects[indexPath.row] as NSDate
             //self.detailViewController!.detailItem = object
-            let row = dataSource.rowAtIndex(indexPath.row)
+            let row = dataSource.rowAtIndex(UInt(indexPath.row))
             var list = CBLModel(forDocument: row.document)
             detailViewController!.detailItem = list
         } else {

@@ -14,8 +14,8 @@ import UIKit
 
 class ShareViewController: UIViewController, CBLUITableDelegate {
 
-    @IBOutlet var tableView: UITableView
-    @IBOutlet var dataSource: CBLUITableSource
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var dataSource: CBLUITableSource!
     var list: List? {
     didSet {
         self.configureView()
@@ -70,7 +70,7 @@ class ShareViewController: UIViewController, CBLUITableDelegate {
     }
     
     func tableView(UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let row = dataSource.rowAtIndex(indexPath.row)
+        let row = dataSource.rowAtIndex(UInt(indexPath.row))
         let toggleMemberId = row.document.documentID
         var ms: NSArray? = list?.members
         if !ms {
