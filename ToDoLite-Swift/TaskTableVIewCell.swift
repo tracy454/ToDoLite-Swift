@@ -19,7 +19,7 @@ protocol TaskTableViewCellDelegate {
 class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var name: UILabel!
-    // As of Swift beta 3, delegates don't work the way I expect
+    // As of Swift beta 4, delegates don't work the way I expect
     // There seems to be no way of specifying an arbitrary object conforming to a protocol as an IBOutlet
     // trying to use @IBOutlet or weak with a protocol type is forbidden
     // The docs recomment the type as NSWindowDelegate?, but that is unrecognized in iOS
