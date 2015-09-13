@@ -27,7 +27,7 @@ class ShareViewController: UIViewController, CBLUITableDelegate {
     var myDocId: String?
     
     override func viewDidLoad() {
-        app = UIApplication.sharedApplication().delegate as AppDelegate
+        app = UIApplication.sharedApplication().delegate as! AppDelegate
         database = app.database
         myDocId = "p:\(app.cblSync.userID)"
         
@@ -36,7 +36,7 @@ class ShareViewController: UIViewController, CBLUITableDelegate {
         self.configureView()
 
         // Do any additional setup after loading the view.
-        if dataSource {
+        if (dataSource != nil) {
             
         }
     }
@@ -50,13 +50,13 @@ class ShareViewController: UIViewController, CBLUITableDelegate {
     func couchTableSource(source: CBLUITableSource!,
         willUseCell cell: UITableViewCell!,
         forRow row: CBLQueryRow!) {
-        let personId = row.document.documentID
+        let personId = row.document!.documentID
         var member: Bool = false
         if myDocId == personId {
             member = true
         } else {
-            var intersection = NSMutableSet(array: list?.members)
-            intersection.intersectSet(NSSet(object: personId))
+            var intersection = NSMutableSet(array: list!.members!)
+            intersection.intersectSet(NSSet(object: personId) as Set<NSObject>)
             if intersection.count > 0 {
                 member = true
             }
@@ -71,16 +71,16 @@ class ShareViewController: UIViewController, CBLUITableDelegate {
     
     func tableView(UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let row = dataSource.rowAtIndex(UInt(indexPath.row))
-        let toggleMemberId = row.document.documentID
+        let toggleMemberId = row!.document!.documentID
         var ms: NSArray? = list?.members
-        if !ms {
+        if !(ms != nil) {
             ms = NSArray()
         }
         let mss = ms!.componentsJoinedByString(" ")
         println("toggle: \(toggleMemberId)\nin members: \(mss)")
         
         let ndx = ms?.indexOfObject(toggleMemberId)
-        if ndx {  // remove it
+        if (ndx != nil) {  // remove it
             let p = NSPredicate(format: "SELF != %@", argumentArray: [toggleMemberId])
             list!.members = ms!.filteredArrayUsingPredicate(p)
         } else {  // add it

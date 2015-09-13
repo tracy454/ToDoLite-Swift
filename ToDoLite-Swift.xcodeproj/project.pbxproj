@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		564792E0197B7D4D00734424 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792D9197B7D4D00734424 /* List.m */; };
-		564792E1197B7D4D00734424 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DB197B7D4D00734424 /* Profile.m */; };
-		564792E2197B7D4D00734424 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DD197B7D4D00734424 /* Task.m */; };
-		564792E3197B7D4D00734424 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 564792DF197B7D4D00734424 /* Titled.m */; };
+		086E25EC1BA6234600FB3146 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25E51BA6234500FB3146 /* List.m */; };
+		086E25ED1BA6234600FB3146 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25E71BA6234500FB3146 /* Profile.m */; };
+		086E25EE1BA6234600FB3146 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25E91BA6234500FB3146 /* Task.m */; };
+		086E25EF1BA6234600FB3146 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25EB1BA6234600FB3146 /* Titled.m */; };
 		564792E5197B7E0500734424 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564792E4197B7E0500734424 /* CouchbaseLite.framework */; };
 		567B13211979929C0069F39A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813254196CAF2200503172 /* AppDelegate.swift */; };
 		567B1322197995610069F39A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813256196CAF2200503172 /* MasterViewController.swift */; };
@@ -42,14 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		564792D8197B7D4D00734424 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = DataModel/List.h; sourceTree = "<group>"; };
-		564792D9197B7D4D00734424 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = DataModel/List.m; sourceTree = "<group>"; };
-		564792DA197B7D4D00734424 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = DataModel/Profile.h; sourceTree = "<group>"; };
-		564792DB197B7D4D00734424 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = DataModel/Profile.m; sourceTree = "<group>"; };
-		564792DC197B7D4D00734424 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = DataModel/Task.h; sourceTree = "<group>"; };
-		564792DD197B7D4D00734424 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = DataModel/Task.m; sourceTree = "<group>"; };
-		564792DE197B7D4D00734424 /* Titled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Titled.h; path = DataModel/Titled.h; sourceTree = "<group>"; };
-		564792DF197B7D4D00734424 /* Titled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Titled.m; path = DataModel/Titled.m; sourceTree = "<group>"; };
+		086E25E31BA6234500FB3146 /* ToDoLite-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToDoLite-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		086E25E41BA6234500FB3146 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = DataModel/List.h; sourceTree = "<group>"; };
+		086E25E51BA6234500FB3146 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = DataModel/List.m; sourceTree = "<group>"; };
+		086E25E61BA6234500FB3146 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = DataModel/Profile.h; sourceTree = "<group>"; };
+		086E25E71BA6234500FB3146 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Profile.m; path = DataModel/Profile.m; sourceTree = "<group>"; };
+		086E25E81BA6234500FB3146 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Task.h; path = DataModel/Task.h; sourceTree = "<group>"; };
+		086E25E91BA6234500FB3146 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = DataModel/Task.m; sourceTree = "<group>"; };
+		086E25EA1BA6234600FB3146 /* Titled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Titled.h; path = DataModel/Titled.h; sourceTree = "<group>"; };
+		086E25EB1BA6234600FB3146 /* Titled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Titled.m; path = DataModel/Titled.m; sourceTree = "<group>"; };
 		564792E4197B7E0500734424 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = Frameworks/CouchbaseLite.framework; sourceTree = "<group>"; };
 		564FD8E619709B5D0007F37B /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = DataModel/List.swift; sourceTree = "<group>"; };
 		564FD8E81970A1550007F37B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = DataModel/Profile.swift; sourceTree = "<group>"; };
@@ -188,18 +189,19 @@
 		56DD8239196DBD8600996E78 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				564792D8197B7D4D00734424 /* List.h */,
-				564792D9197B7D4D00734424 /* List.m */,
-				564792DA197B7D4D00734424 /* Profile.h */,
-				564792DB197B7D4D00734424 /* Profile.m */,
-				564792DC197B7D4D00734424 /* Task.h */,
-				564792DD197B7D4D00734424 /* Task.m */,
-				564792DE197B7D4D00734424 /* Titled.h */,
-				564792DF197B7D4D00734424 /* Titled.m */,
+				086E25E41BA6234500FB3146 /* List.h */,
+				086E25E51BA6234500FB3146 /* List.m */,
+				086E25E61BA6234500FB3146 /* Profile.h */,
+				086E25E71BA6234500FB3146 /* Profile.m */,
+				086E25E81BA6234500FB3146 /* Task.h */,
+				086E25E91BA6234500FB3146 /* Task.m */,
+				086E25EA1BA6234600FB3146 /* Titled.h */,
+				086E25EB1BA6234600FB3146 /* Titled.m */,
 				564FD8E619709B5D0007F37B /* List.swift */,
 				564FD8E81970A1550007F37B /* Profile.swift */,
 				564FD8EA1970A1800007F37B /* Task.swift */,
 				56DD823A196DBF4F00996E78 /* Titled.swift */,
+				086E25E31BA6234500FB3146 /* ToDoLite-Swift-Bridging-Header.h */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -304,15 +306,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				564792E2197B7D4D00734424 /* Task.m in Sources */,
+				086E25EE1BA6234600FB3146 /* Task.m in Sources */,
 				567B132C1979BA1A0069F39A /* TaskTableVIewCell.swift in Sources */,
 				567B1322197995610069F39A /* MasterViewController.swift in Sources */,
 				567B13211979929C0069F39A /* AppDelegate.swift in Sources */,
+				086E25ED1BA6234600FB3146 /* Profile.m in Sources */,
 				56FBE0E2196CD3C10067223F /* CBLSyncManager.swift in Sources */,
-				564792E1197B7D4D00734424 /* Profile.m in Sources */,
+				086E25EF1BA6234600FB3146 /* Titled.m in Sources */,
 				56813259196CAF2200503172 /* DetailViewController.swift in Sources */,
-				564792E0197B7D4D00734424 /* List.m in Sources */,
-				564792E3197B7D4D00734424 /* Titled.m in Sources */,
+				086E25EC1BA6234600FB3146 /* List.m in Sources */,
 				567B132F1979CDB40069F39A /* ImageViewController.swift in Sources */,
 				56DD8238196DB8D700996E78 /* ShareViewController.swift in Sources */,
 			);
@@ -351,7 +353,7 @@
 		5681326B196CAF2200503172 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -368,6 +370,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/adamelemental/dev/CouchBase/couchbase-lite-ios-enterprise_1.1.0-31/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -396,7 +399,7 @@
 		5681326C196CAF2200503172 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -414,6 +417,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/adamelemental/dev/CouchBase/couchbase-lite-ios-enterprise_1.1.0-31/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -436,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,6 +451,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = ToDoLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift/ToDoLite-Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -454,6 +461,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -464,6 +472,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_MODULE_NAME = ToDoLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift/ToDoLite-Swift-Bridging-Header.h";
 			};
 			name = Release;
 		};

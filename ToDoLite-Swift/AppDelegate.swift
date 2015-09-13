@@ -23,19 +23,18 @@ let kFBAppId = "501518809925546"
     var database: CBLDatabase!
     var cblSync: CBLSyncManager!
 
-
-    func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as UINavigationController
-        splitViewController.delegate = navigationController.topViewController as DetailViewController
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        splitViewController.delegate = navigationController.topViewController as! DetailViewController
         
         // CouchbaseLite setup
         let manager = CBLManager.sharedInstance()
         var error: NSError?
         database = manager.databaseNamed("todos", error: &error)
-        if !database {
-            println("Failed to get a database: \(error ? error!.localizedDescription : nil)")
+        if !(database != nil) {
+            println("Failed to get a database: \(error)") // ? error.localizedDescription! : nil)")
             exit(-1)
         }
         
@@ -74,7 +73,7 @@ let kFBAppId = "501518809925546"
     func updateMyLists(userID: String, userData: Dictionary<String, AnyObject>, outError: NSErrorPointer?) {
         let name: AnyObject? = userData["name"]
         //let myProfile = Profile(inDatabase: database, name: name as String, userID: userID)
-        let myProfile = Profile(currentUserProfileInDatabase: database, withName: name as String, andUserID: userID)
+        let myProfile = Profile(currentUserProfileInDatabase: database, withName: name as! String, andUserID: userID)
         //var error = List.updateAllListsInDatabase(database, withOwner: myProfile)
         var error: NSError?
         List.updateAllListsInDatabase(database, withOwner: myProfile, error: outError!)
@@ -85,27 +84,27 @@ let kFBAppId = "501518809925546"
     }
     
     func setupCBLSync() {
-        cblSync = CBLSyncManager(forDatabase: database, withURL: NSURL(string: kSyncUrl))
+        cblSync = CBLSyncManager(forDatabase: database, withURL: NSURL(string: kSyncUrl)!)
         
         // We are using Facebook login for the demo
         cblSync.authenticator = CBLFacebookAuthenticator(appID: kFBAppId)
         
-        if cblSync.userID { // we are already logged in so sync up
+        if (cblSync.userID != nil) { // we are already logged in so sync up
             cblSync.start()
         } else {
             cblSync.beforeFirstSync({userID, userData, outError in
                 let updateMe: () -> () = {
                     self.updateMyLists(userID, userData: userData, outError: outError)
                 }
-                let blockOp: NSBlockOperation = NSBlockOperation(updateMe)
+                let blockOp: NSBlockOperation = NSBlockOperation(block: updateMe)
                 NSOperationQueue.mainQueue().addOperations([blockOp], waitUntilFinished: true)
                 })
         }
     }
     
     func loginAndSync(complete: () -> Void) {
-        assert(cblSync, "setupCBLSync() must succeed first")
-        if cblSync.userID {
+        assert(cblSync != nil, "setupCBLSync() must succeed first")
+        if (cblSync.userID != nil) {
             complete()  // we are good to go
         } else {  // queue it for later
             cblSync.beforeFirstSync({ userID, userData, outError in

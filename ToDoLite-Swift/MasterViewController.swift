@@ -35,14 +35,14 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         // Do any additional setup after loading the view, typically from a nib.
         
         // database stuff
-        app = UIApplication.sharedApplication().delegate as AppDelegate
+        app = UIApplication.sharedApplication().delegate as! AppDelegate
         database = app.database
         let liveListQuery = List.queryListsInDatabase(database)?.asLiveQuery()
-        dataSource!.query = liveListQuery
+        dataSource!.query = liveListQuery!
         dataSource!.labelProperty = "title"
         
         // login stuff
-        if !app.cblSync.userID {
+        if !(app.cblSync.userID != nil) {
             var loginButton = UIBarButtonItem(title: "Login", style: .Bordered, target: self, action: "doLogin:")
             navigationItem.leftBarButtonItem = loginButton
         }
@@ -83,7 +83,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
     func createListWithTitle(title: String) -> List? {
         var list = List(inDatabase: database, withTitle: title)
         var myUser: Profile?
-        if app.cblSync.userID {
+        if (app.cblSync.userID != nil) {
             myUser = Profile(inDatabase: database, forUserID: app.cblSync.userID)
             list.owner = myUser
         }
@@ -98,7 +98,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
 
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
         if buttonIndex > 0 {
-            let title = alertView.textFieldAtIndex(0).text
+            let title = alertView.textFieldAtIndex(0)!.text
             if !title.isEmpty {
                 let list = createListWithTitle(title)
                 tableView.reloadData()
@@ -111,9 +111,9 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             let indexPath = self.tableView.indexPathForSelectedRow()
-            let row = dataSource.rowAtIndex(UInt(indexPath.row))
-            var list = CBLModel(forDocument: row.document) as? List
-            ((segue.destinationViewController as UINavigationController).topViewController as DetailViewController).detailItem = list
+            let row = dataSource.rowAtIndex(UInt(indexPath!.row))
+            var list = CBLModel(forDocument: row!.document!) as? List
+            ((segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController).detailItem = list
         }
     }
     
@@ -159,7 +159,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
             //let object = objects[indexPath.row] as NSDate
             //self.detailViewController!.detailItem = object
             let row = dataSource.rowAtIndex(UInt(indexPath.row))
-            var list = CBLModel(forDocument: row.document)
+            var list = CBLModel(forDocument: row!.document!)
             detailViewController!.detailItem = list
         } else {
             performSegueWithIdentifier("showDetail", sender: self)

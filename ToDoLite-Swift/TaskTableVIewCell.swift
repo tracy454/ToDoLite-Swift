@@ -10,6 +10,7 @@
 //  Created by Pasin Suriyentrakorn on 4/8/14.
 //  Copyright (c) 2014 Chris Anderson. All rights reserved.
 
+import UIKit
 import Foundation
 
 protocol TaskTableViewCellDelegate {
@@ -26,10 +27,10 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var delegate: DetailViewController?
     
     @IBAction func imageButtonAction(sender: AnyObject?) {
-        if !task {
+        if !(task != nil) {
             return
         }
-        delegate?.didSelectImageButton(sender as UIButton, ofTask: task!)
+        delegate?.didSelectImageButton(sender as! UIButton, ofTask: task!)
     }
     
     var task: Task? {
@@ -37,7 +38,7 @@ class TaskTableViewCell: UITableViewCell {
         name.text = task?.title
         let checked = task?.checked
         
-        if checked {
+        if (checked != nil) {
             self.accessoryType = UITableViewCellAccessoryType.Checkmark
             name.textColor = UIColor.grayColor()
         } else {
@@ -47,8 +48,8 @@ class TaskTableViewCell: UITableViewCell {
         
         var attachments = task?.attachmentNames
         if attachments?.count > 0 {
-            let attachment: CBLAttachment = attachments![0] as CBLAttachment
-            let attachedImage = UIImage(data: attachment.content)
+            let attachment: CBLAttachment = attachments![0] as! CBLAttachment
+            let attachedImage = UIImage(data: attachment.content!)
             self.imageButton.setImage(attachedImage, forState: UIControlState.Normal)
         } else {
             self.imageButton.setImage(UIImage(named: "Camera-Light"), forState: UIControlState.Normal)
@@ -57,8 +58,12 @@ class TaskTableViewCell: UITableViewCell {
     }
     // internals
     
-    init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+    override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func awakeFromNib() {

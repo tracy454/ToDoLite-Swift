@@ -59,9 +59,9 @@ class DetailViewController: UIViewController,
             addItemTextField.enabled = true
             addImageButton.enabled = true
             
-            navigationItem.rightBarButtonItem.title = "Share"
+            navigationItem.rightBarButtonItem!.title = "Share"
             
-            assert(dataSource, "detail.dataSource not connected")
+            assert(dataSource != nil, "detail.dataSource not connected")
             dataSource!.labelProperty = "title"
             dataSource!.query = detail.queryTasks().asLiveQuery()
         } else {
@@ -72,16 +72,16 @@ class DetailViewController: UIViewController,
     }
     
     // customize table view cell
-    func couchTableSource(source: CBLUITableSource, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell? {
+    func couchTableSource(source: CBLUITableSource, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "Task"
         var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? TaskTableViewCell
-        if !cell {
+        if !(cell != nil) {
             cell = TaskTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
         }
-        assert(cell, "Can't make a TaskTableCell")
+        assert(cell != nil, "Can't make a TaskTableCell")
         
         let row = source.rowAtIndex(UInt(indexPath.row))
-        let newTask = Task(forDocument: row.document)
+        let newTask = Task(forDocument: row!.document!)
         cell!.task = newTask
         cell!.delegate = self
         
@@ -93,7 +93,7 @@ class DetailViewController: UIViewController,
             cell!.accessoryType = UITableViewCellAccessoryType.None
         }
         
-        return cell
+        return cell!
     }
 
     override func viewDidLoad() {
@@ -117,7 +117,7 @@ class DetailViewController: UIViewController,
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if segue.identifier == "setupSharing" {
-            var svc = segue.destinationViewController as ShareViewController
+            var svc = segue.destinationViewController as! ShareViewController
             svc.list = detailItem as? List
         }
     }
@@ -146,7 +146,7 @@ class DetailViewController: UIViewController,
     // called when an item is selected. Toggles the checkmark
     func tableView(UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) -> Void {
         let row = dataSource.rowAtIndex(UInt(indexPath.row))
-        var task = Task(forDocument: row.document)
+        var task = Task(forDocument: row!.document!)
         let checked = task.checked
         task.checked = !checked
         var error: NSError?
@@ -163,15 +163,15 @@ class DetailViewController: UIViewController,
             return false
         }
         addItemTextField.text = nil
-        assert(detailItem, "must have a list before adding to it")
+        assert(detailItem != nil, "must have a list before adding to it")
         
         // Is a picture ready and waiting?
-        var image: NSData? = imageForNewTask ? dataForImage(imageForNewTask!) : nil
+        var image: NSData? = (imageForNewTask != nil) ? dataForImage(imageForNewTask!) : nil
 
         let list = detailItem as? List
         let task = list?.addTaskWithTitle(title, withImage: image, withImageContentType: ImageDataContentType)
         var error: NSError?
-        if task?.save(&error) {
+        if (task?.save(&error) != nil) {
             imageForNewTask = nil  // clean up
             updateAddImageButton(nil)
         } else {
@@ -195,7 +195,7 @@ class DetailViewController: UIViewController,
             actionSheet.addButtonWithTitle("Take Photo")
         }
         actionSheet.addButtonWithTitle("Choose Existing")
-        if imageForNewTask {
+        if (imageForNewTask != nil) {
             actionSheet.addButtonWithTitle("Delete")
         }
         actionSheet.addButtonWithTitle("Cancel")
@@ -234,20 +234,20 @@ class DetailViewController: UIViewController,
         }
         
         // Delete button
-        if imageForNewTask && buttonIndex == actionSheet.cancelButtonIndex - 1 {
+        if (imageForNewTask != nil && buttonIndex == actionSheet.cancelButtonIndex - 1) {
             updateAddImageButton(nil )
             imageForNewTask = nil
             return
         }
         
-        // 
+        //
         let sourceType = (hasCamera() && buttonIndex == 0) ? UIImagePickerControllerSourceType.Camera : UIImagePickerControllerSourceType.PhotoLibrary
         displayImagePickerForSourceType(sourceType)
     }
     
     // addImageButton
     func updateAddImageButton(image: UIImage?) {
-        if image {
+        if (image != nil) {
             addImageButton.setImage(image, forState: UIControlState.Normal)
         } else {
             addImageButton.setImage(UIImage(named: "Camera"), forState: UIControlState.Normal)
@@ -261,9 +261,9 @@ class DetailViewController: UIViewController,
     //MARK: TaskTableCellDelegate
     func didSelectImageButton(imageButton: UIButton, ofTask task: Task) {
         let attachment = task.attachmentNamed("image")
-        if attachment {
-            var imageViewController = self.storyboard.instantiateViewControllerWithIdentifier("ImageVIewController") as ImageViewController
-            imageViewController.image = UIImage(data: attachment.content)
+        if (attachment != nil) {
+            var imageViewController = self.storyboard!.instantiateViewControllerWithIdentifier("ImageVIewController") as! ImageViewController
+            imageViewController.image = UIImage(data: attachment!.content!)
             imageViewController.modalPresentationStyle = UIModalPresentationStyle.FullScreen
             presentViewController(imageViewController, animated: false, completion: nil )
         } else {
