@@ -56,6 +56,7 @@ class DetailViewController: UIViewController,
             }
             
             title = detail.title
+            assert(addItemTextField != nil, "addItemTextField cannot be nil")
             addItemTextField.enabled = true
             addImageButton.enabled = true
             
@@ -115,7 +116,7 @@ class DetailViewController: UIViewController,
         })
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "setupSharing" {
             var svc = segue.destinationViewController as! ShareViewController
             svc.list = detailItem as? List

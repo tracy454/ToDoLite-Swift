@@ -43,7 +43,7 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
         
         // login stuff
         if !(app.cblSync.userID != nil) {
-            var loginButton = UIBarButtonItem(title: "Login", style: .Bordered, target: self, action: "doLogin:")
+            var loginButton = UIBarButtonItem(title: "Login", style: .Plain, target: self, action: "doLogin:")
             navigationItem.leftBarButtonItem = loginButton
         }
         
@@ -81,7 +81,9 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
     }
     
     func createListWithTitle(title: String) -> List? {
-        var list = List(inDatabase: database, withTitle: title)
+        var list = List(forNewDocumentInDatabase: database)
+        list.title = title
+        
         var myUser: Profile?
         if (app.cblSync.userID != nil) {
             myUser = Profile(inDatabase: database, forUserID: app.cblSync.userID)
@@ -156,8 +158,8 @@ class MasterViewController: UITableViewController, CBLUITableDelegate, UIAlertVi
 */
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-            //let object = objects[indexPath.row] as NSDate
-            //self.detailViewController!.detailItem = object
+            let object = objects[indexPath.row] as! NSDate
+            self.detailViewController!.detailItem = object
             let row = dataSource.rowAtIndex(UInt(indexPath.row))
             var list = CBLModel(forDocument: row!.document!)
             detailViewController!.detailItem = list

@@ -11,7 +11,7 @@
 		086E25ED1BA6234600FB3146 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25E71BA6234500FB3146 /* Profile.m */; };
 		086E25EE1BA6234600FB3146 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25E91BA6234500FB3146 /* Task.m */; };
 		086E25EF1BA6234600FB3146 /* Titled.m in Sources */ = {isa = PBXBuildFile; fileRef = 086E25EB1BA6234600FB3146 /* Titled.m */; };
-		564792E5197B7E0500734424 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 564792E4197B7E0500734424 /* CouchbaseLite.framework */; };
+		086E25F21BA6E43100FB3146 /* CouchbaseLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086E25F11BA6E43100FB3146 /* CouchbaseLite.framework */; };
 		567B13211979929C0069F39A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813254196CAF2200503172 /* AppDelegate.swift */; };
 		567B1322197995610069F39A /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56813256196CAF2200503172 /* MasterViewController.swift */; };
 		567B132C1979BA1A0069F39A /* TaskTableVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567B132B1979BA1A0069F39A /* TaskTableVIewCell.swift */; };
@@ -42,7 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		086E25E31BA6234500FB3146 /* ToDoLite-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToDoLite-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 		086E25E41BA6234500FB3146 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = List.h; path = DataModel/List.h; sourceTree = "<group>"; };
 		086E25E51BA6234500FB3146 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = List.m; path = DataModel/List.m; sourceTree = "<group>"; };
 		086E25E61BA6234500FB3146 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Profile.h; path = DataModel/Profile.h; sourceTree = "<group>"; };
@@ -51,8 +50,8 @@
 		086E25E91BA6234500FB3146 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Task.m; path = DataModel/Task.m; sourceTree = "<group>"; };
 		086E25EA1BA6234600FB3146 /* Titled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Titled.h; path = DataModel/Titled.h; sourceTree = "<group>"; };
 		086E25EB1BA6234600FB3146 /* Titled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Titled.m; path = DataModel/Titled.m; sourceTree = "<group>"; };
-		086E25F01BA625E100FB3146 /* ToDoLite-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ToDoLite-Swift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		564792E4197B7E0500734424 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = Frameworks/CouchbaseLite.framework; sourceTree = "<group>"; };
+		086E25F11BA6E43100FB3146 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CouchbaseLite.framework; path = "../../CouchBase/couchbase-lite-ios-enterprise_1.1.0-31/CouchbaseLite.framework"; sourceTree = "<group>"; };
+		086E25F41BA6F51500FB3146 /* ToDoLite-Swift-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ToDoLite-Swift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		564FD8E619709B5D0007F37B /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = DataModel/List.swift; sourceTree = "<group>"; };
 		564FD8E81970A1550007F37B /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = DataModel/Profile.swift; sourceTree = "<group>"; };
 		564FD8EA1970A1800007F37B /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Task.swift; path = DataModel/Task.swift; sourceTree = "<group>"; };
@@ -92,7 +91,7 @@
 				56813289196CB0D700503172 /* Security.framework in Frameworks */,
 				56813287196CB0CE00503172 /* SystemConfiguration.framework in Frameworks */,
 				56813285196CB0C700503172 /* CFNetwork.framework in Frameworks */,
-				564792E5197B7E0500734424 /* CouchbaseLite.framework in Frameworks */,
+				086E25F21BA6E43100FB3146 /* CouchbaseLite.framework in Frameworks */,
 				56813283196CB0BE00503172 /* Accounts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,7 +128,7 @@
 		56813251196CAF2200503172 /* ToDoLite-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				086E25F01BA625E100FB3146 /* ToDoLite-Swift-Bridging-Header.h */,
+				086E25F41BA6F51500FB3146 /* ToDoLite-Swift-Bridging-Header.h */,
 				56DD8239196DBD8600996E78 /* DataModel */,
 				56813254196CAF2200503172 /* AppDelegate.swift */,
 				56813256196CAF2200503172 /* MasterViewController.swift */,
@@ -174,7 +173,7 @@
 		56813281196CB01400503172 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				564792E4197B7E0500734424 /* CouchbaseLite.framework */,
+				086E25F11BA6E43100FB3146 /* CouchbaseLite.framework */,
 				5681328E196CB10300503172 /* libsqlite3.dylib */,
 				5681328C196CB0EC00503172 /* libz.dylib */,
 				5681328A196CB0E300503172 /* Social.framework */,
@@ -201,7 +200,6 @@
 				564FD8E81970A1550007F37B /* Profile.swift */,
 				564FD8EA1970A1800007F37B /* Task.swift */,
 				56DD823A196DBF4F00996E78 /* Titled.swift */,
-				086E25E31BA6234500FB3146 /* ToDoLite-Swift-Bridging-Header.h */,
 			);
 			name = DataModel;
 			sourceTree = "<group>";
@@ -390,7 +388,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./ToDoLite-Swift/ToDoLite-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,7 +427,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "ToDoLite-Swift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "./ToDoLite-Swift/ToDoLite-Swift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -445,6 +443,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"/Users/adamelemental/dev/CouchBase/couchbase-lite-ios-enterprise_1.1.0-31",
 				);
 				INFOPLIST_FILE = "ToDoLite-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -466,6 +465,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"/Users/adamelemental/dev/CouchBase/couchbase-lite-ios-enterprise_1.1.0-31",
 				);
 				INFOPLIST_FILE = "ToDoLite-Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
