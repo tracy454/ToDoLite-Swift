@@ -29,10 +29,10 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
     
     var authenticator: CBLSyncAuthenticator? {
     didSet {
-        if var auth = self.authenticator? {
+        if var auth = self.authenticator {
             auth.syncManager = self
         }
-        if self.lastAuthError {
+        if (self.lastAuthError != nil) {
             self.runAuthenticator()
         }
     }
@@ -63,13 +63,13 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         assert(self.userID == nil, "userID already exists")
         authenticator?.getCredentials({ userID, userData in
             println("Retrieved userID from authenticator: \(userID)")
-            if self.userID {  // already set up this userID
+            if (self.userID != nil) {  // already set up this userID
                 return
             }
             self.userID = userID
             // do the setup callbacks
             let error: NSError? = self.runBeforeSyncStartWithUserID(userID!, userData: userData!)
-            if error {
+            if (error != nil) {
                 // handle it
             } else {
                 complete()
@@ -81,7 +81,7 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         var block: (userID: String, userData: Dictionary<String, AnyObject>, outError: NSErrorPointer?) -> Void?
         var error: NSError?
         for block in beforeSyncBlocks {
-            if error {
+            if (error != nil) {
                 return error
             }
             block(userID: userID, userData: userData, outError: &error)
@@ -92,7 +92,7 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
     // public interface API
     
     func start() {
-        if !userID {
+        if !(userID != nil) {
             setupNewUser({ self.launchSync() })
         } else {
             launchSync()
@@ -111,7 +111,7 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
     func launchSync() {
         defineSync()
         
-        if lastAuthError {  // this could be set by defineSync()
+        if (lastAuthError != nil) {  // this could be set by defineSync()
             //assert(authenticator, "Authenticator not defined")
             runAuthenticator()
         } else {
@@ -121,7 +121,7 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
     
     func runAuthenticator() {
         authenticator?.getCredentials({ newUserID, userData in
-            assert(newUserID? == self.userID, "Changing userID is forbidden")
+            assert(newUserID == self.userID, "Changing userID is forbidden")
             self.restartSync()
             })
     }
@@ -130,14 +130,14 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         var replications: Array<CBLReplication> = []
         
         pull = database.createPullReplication(remoteURL)
-        if pull {
+        if (pull != nil) {
             pull!.continuous = true
             listenForReplicationEvents(pull!)
             replications.append(pull!)
         }
         
         push = database.createPushReplication(remoteURL)
-        if push {
+        if (push != nil) {
             push!.continuous = true
             listenForReplicationEvents(push!)
             replications.append(push!)
@@ -181,10 +181,10 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         var error: NSError?
         
         for repl in [pull, push] {
-            let maxStatus = max(status.toRaw(), repl!.status.toRaw())
-            status = CBLReplicationStatus.fromRaw(maxStatus)!
+            let maxStatus = max(status.rawValue, repl!.status.rawValue)
+            status = CBLReplicationStatus(rawValue: maxStatus)!
             
-            if !error {
+            if !(error != nil) {
                 error = repl!.lastError
             }
             if repl!.status == .Active {
@@ -197,7 +197,7 @@ let kCBLPrefKeyUserID = "CBLFBUserID"
         // did we have an error?
         if error != _error && error?.code == 401 {
             // need (re-)authentication
-            if !authenticator {
+            if !(authenticator != nil) {
                 // try again after sync has triggered
                 lastAuthError = error
                 return
@@ -252,7 +252,7 @@ class CBLFacebookAuthenticator: NSObject, CBLSyncAuthenticator {
         getFacebookAccessToken({accessToken, fbAccount in
             self.getFacebookUserInfo(accessToken: accessToken, facebookAccount: fbAccount, onCompletion: {userData in
                 let id: AnyObject? = userData!["email"]
-                let userID = id as String?
+                let userID = id as! String?
                 let access_token = self.accessTokenKey(forUserID: userID)
                 // save token in defaults
                 NSUserDefaults.standardUserDefaults().setObject(accessToken, forKey: access_token)
@@ -276,12 +276,12 @@ class CBLFacebookAuthenticator: NSObject, CBLSyncAuthenticator {
             let request = SLRequest(forServiceType: SLServiceTypeFacebook, requestMethod: SLRequestMethod.GET, URL: fbLoginURL, parameters: nil)
             request.account = fbAccount
             func reqHandler(data: NSData?, response: NSHTTPURLResponse?, error: NSError?) {
-                let status: Int?  = response ? response!.statusCode : nil
-                if !error && status? == 200 {
+                let status: Int?  = (response != nil) ? response!.statusCode : nil
+                if (error == nil && status == 200) {
                     var deserializationError: NSError?
-                    let JSONObj : AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &deserializationError)
-                    let userData = JSONObj as Dictionary<String, AnyObject>?
-                    if userData && !deserializationError {
+                    let JSONObj : AnyObject! = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(0), error: &deserializationError)
+                    let userData = JSONObj as! Dictionary<String, AnyObject>?
+                    if (userData != nil && deserializationError == nil) {
                         complete(userData: userData)
                     }
                 }
@@ -306,7 +306,7 @@ class CBLFacebookAuthenticator: NSObject, CBLSyncAuthenticator {
                 if granted {
                     let accounts: Array = accountStore.accountsWithAccountType(fbAccountType)
                     let last = accounts.count - 1
-                    let fbAccount = accounts[last] as ACAccount
+                    let fbAccount = accounts[last] as! ACAccount
                     let fbCredential = fbAccount.credential
                     let accessToken = fbCredential.oauthToken
                     compl(accessToken: accessToken, fbAccount: fbAccount)  // pass it along

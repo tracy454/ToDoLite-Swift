@@ -8,9 +8,9 @@
 
 #import <CouchbaseLite/CouchbaseLite.h>
 #import <Accounts/Accounts.h>
-#import <Social/Social.h> 
+#import <Social/Social.h>
 
-#import "ToDoLite-Swift/DataModel/Titled.h"
-#import "ToDoLite-Swift/DataModel/List.h"
-#import "ToDoLite-Swift/DataModel/Task.h"
-#import "ToDoLite-Swift/DataModel/Profile.h"
+#import "../ToDoLite-Swift/DataModel/Titled.h"
+#import "../ToDoLite-Swift/DataModel/List.h"
+#import "../ToDoLite-Swift/DataModel/Task.h"
+#import "../ToDoLite-Swift/DataModel/Profile.h"

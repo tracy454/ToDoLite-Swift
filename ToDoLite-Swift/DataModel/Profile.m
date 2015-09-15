@@ -28,41 +28,29 @@
     return [view createQuery];
 }
 
-+ (instancetype) profileInDatabase: (CBLDatabase*)db forUserID: (NSString*)userID {
-    NSParameterAssert(userID);
-    NSString* profileDocId = [@"p:" stringByAppendingString:userID];
++ (instancetype) profileInDatabase: (CBLDatabase*)db forExistingUserId: (NSString*)userId {
+    NSParameterAssert(userId);
+    NSString* profileDocId = [@"p:" stringByAppendingString:userId];
     CBLDocument *doc;
     if (profileDocId.length > 0)
         doc = [db existingDocumentWithID: profileDocId];
     return doc ? [Profile modelForDocument: doc] : nil;
 }
 
-
-
-- (instancetype) initCurrentUserProfileInDatabase: (CBLDatabase*)database
-                       withName: (NSString*)name
-                       andUserID: (NSString*)userId
-{
++ (instancetype) profileInDatabase: (CBLDatabase*)database forNewUserId: (NSString*)userId name: (NSString*)name {
     NSParameterAssert(name);
     NSParameterAssert(userId);
-
+    
     CBLDocument* doc = [database documentWithID: [@"p:" stringByAppendingString:userId]];
-
-    self = [super initWithDocument:doc];
-    if (self) {
-        self.name = name;
-        self.user_id = userId;
-        self.type = kProfileDocType;
-    }
-    return self;
+    Profile* profile = [Profile modelForDocument:doc];
+    profile.type = kProfileDocType;
+    profile.name = name;
+    profile.user_id = userId;
+    return profile;
 }
 
-
-
-// Include the title in the description to make it more informative. */
 - (NSString*) description {
-    return [NSString stringWithFormat: @"%@[%@ '%@']",
-            self.class, self.document.abbreviatedID, self.user_id];
+    return [NSString stringWithFormat: @"%@[%@ '%@']", self.class, self.document.abbreviatedID, self.user_id];
 }
 
 
